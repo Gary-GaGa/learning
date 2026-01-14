@@ -33,7 +33,7 @@ sequenceDiagram
 
   U->>KC: Obtain access token (contains tenant_id)
   KC-->>U: access token (JWT)
-  U->>API: GET /t/acme/reports<br/>Authorization: Bearer <token>
+  U->>API: GET /t/acme/reports (Authorization: Bearer TOKEN)
   API->>API: Validate JWT (sig/iss/exp...)
   API->>API: Extract URL tenant=acme
   API->>API: Compare token tenant_id
