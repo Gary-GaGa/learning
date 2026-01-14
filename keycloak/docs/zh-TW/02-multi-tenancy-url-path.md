@@ -35,7 +35,7 @@ sequenceDiagram
 
   U->>KC: 取得 access token（含 tenant_id）
   KC-->>U: access token (JWT)
-  U->>API: GET /t/acme/reports\nAuthorization: Bearer <token>
+  U->>API: GET /t/acme/reports<br/>Authorization: Bearer <token>
   API->>API: 驗證 JWT（簽章/iss/exp...）
   API->>API: 解析 URL tenant=acme
   API->>API: 比對 token tenant_id

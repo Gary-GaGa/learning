@@ -15,22 +15,22 @@
 ```mermaid
 flowchart TD
   subgraph R[Realm: demo]
-    U[User: alice\nattribute: tenantId=acme]
+    U["User: alice<br/>attribute: tenantId=acme"]
     G[Group: /tenants/acme]
     C[Client: api]
-    M[Mapper\nUser attribute tenantId -> claim tenant_id]
-    RO[Roles/Scopes\n(reports:read, reports:write)]
+    M["Mapper<br/>User attribute tenantId -> claim tenant_id"]
+    RO["Roles/Scopes<br/>(reports:read, reports:write)"]
   end
 
   U --> G
   C --> M
-  M --> T[Access Token (JWT)\nclaim: tenant_id]
+  M --> T["Access Token (JWT)<br/>claim: tenant_id"]
   RO --> T
 
-  T --> API[Spring Boot 3 API\nURL: /t/{tenant}/...]
-  API --> CHECK{Check}\n
-  CHECK -->|tenant_id == {tenant}| OK[Continue]\n
-  CHECK -->|mismatch| DENY[403 Forbidden]\n
+  T --> API["Spring Boot 3 API<br/>URL: /t/{tenant}/..."]
+  API --> CHECK{Check}
+  CHECK -->|tenant_id == {tenant}| OK[Continue]
+  CHECK -->|mismatch| DENY[403 Forbidden]
 ```
 
 ## Client（應用程式/服務）
