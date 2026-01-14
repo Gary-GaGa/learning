@@ -27,9 +27,9 @@ flowchart TD
   M --> T["Access Token (JWT) claim tenant_id"]
   RO --> T
 
-  T --> API["Spring Boot 3 API URL /t/{tenant}/..."]
+  T --> API["Spring Boot 3 API URL /t/TENANT/..."]
   API --> CHECK{Check}
-  CHECK -->|tenant_id == {tenant}| OK[Continue]
+  CHECK -->|tenant_id == URL tenant| OK[Continue]
   CHECK -->|mismatch| DENY[403 Forbidden]
 ```
 
