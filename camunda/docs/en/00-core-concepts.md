@@ -18,12 +18,12 @@ This chapter maps Camunda 7 terms to what you will actually do.
 flowchart LR
   U[User]
   subgraph C7[Camunda 7]
-    WEB[Webapps\nTasklist/Cockpit/Admin]
+    WEB["Webapps<br/>Tasklist/Cockpit/Admin"]
     ENG[Process Engine]
-    DB[(Database\nH2/Postgres)]
-    REST[Engine REST API\n/engine-rest]
+    DB[("Database<br/>H2/Postgres")]
+    REST["Engine REST API<br/>/engine-rest"]
   end
-  W[Worker\n(External Task)]
+  W["Worker<br/>External Task"]
 
   U --> WEB
   WEB --> ENG
