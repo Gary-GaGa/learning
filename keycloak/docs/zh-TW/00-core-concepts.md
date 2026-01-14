@@ -14,20 +14,20 @@
 
 ```mermaid
 flowchart TD
-  subgraph R[Realm: demo]
-    U["User: alice<br/>attribute: tenantId=acme"]
+  subgraph R["Realm: demo"]
+    U["User: alice (tenantId=acme)"]
     G[Group: /tenants/acme]
     C[Client: api]
-    M["Mapper<br/>User attribute tenantId -> claim tenant_id"]
-    RO["Roles/Scopes<br/>(reports:read, reports:write)"]
+    M["Mapper: tenantId -> tenant_id"]
+    RO["Roles/Scopes: reports:read, reports:write"]
   end
 
   U --> G
   C --> M
-  M --> T["Access Token (JWT)<br/>claim: tenant_id"]
+  M --> T["Access Token (JWT) claim tenant_id"]
   RO --> T
 
-  T --> API["Spring Boot 3 API<br/>URL: /t/{tenant}/..."]
+  T --> API["Spring Boot 3 API URL /t/{tenant}/..."]
   API --> CHECK{Check}
   CHECK -->|tenant_id == {tenant}| OK[Continue]
   CHECK -->|mismatch| DENY[403 Forbidden]
