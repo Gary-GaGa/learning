@@ -1,6 +1,8 @@
 # 05 - 流程變數、錯誤與重試
 
-目標：掌握流程變數的使用方式，並理解「錯誤（BPMN Error）」「失敗（Failure）」「事故（Incident）」的差異。
+## 目標
+
+掌握流程變數的使用方式，並理解「錯誤（BPMN Error）」「失敗（Failure）」「事故（Incident）」的差異。
 
 ## 1) 變數（Variables）
 
@@ -54,3 +56,7 @@
 - 你能解釋 BPMN Error 與 Incident 的不同
 - 你知道 retries 應該由 Worker 控制（External Task 模式）
 - 你知道變數是流程狀態的重要部分
+
+## 下一步
+
+繼續到 [06 - 部署版本、流程升級與 Migration 思路](06-versioning-and-migration.md)。

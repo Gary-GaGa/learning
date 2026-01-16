@@ -1,6 +1,8 @@
 # 05 - 細粒度授權（混合：Keycloak + API）
 
-目標：做到「功能面」與「資源層」都安全。
+## 目標
+
+做到「功能面」與「資源層」都安全。
 
 - 功能面（feature-level）：scope/role（Keycloak 端管理）
 - 資源層（data-row / resource-level）：由 API 端檢查（tenant + 擁有者/ACL）
@@ -55,3 +57,5 @@ Keycloak 可以做 policy，但把所有資料列都變成 Keycloak Resource 通
 - 用 `hasAuthority("SCOPE_reports:read")` 控制讀取
 - 用 `hasAuthority("SCOPE_reports:write")` 控制寫入
 - 在程式碼中強制 tenant 與資料一致
+
+繼續到 [06 - 除錯、檢核與工具](06-debugging-and-tools.md)。

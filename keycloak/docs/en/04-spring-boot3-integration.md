@@ -1,6 +1,8 @@
 # 04 - Spring Boot 3 Resource Server integration
 
-Goal: validate Keycloak JWT with Spring Boot 3 + Spring Security, and implement:
+## Goal
+
+Validate Keycloak JWT with Spring Boot 3 + Spring Security, and implement:
 
 - Read the claim `tenant_id`
 - Map roles / scopes into Spring Authorities
@@ -39,3 +41,7 @@ It contains:
 - `GET http://localhost:8081/t/acme/reports`
 
 Next chapter covers scopes/roles and the hybrid fine-grained authorization approach.
+
+## Next
+
+Continue to [05 - Fine-grained authorization (hybrid: Keycloak + API)](05-fine-grained-hybrid-authorization.md).

@@ -1,6 +1,8 @@
 # 06 - Debugging, checks, and tools
 
-Goal: have a repeatable checklist when you can’t get a token, claims are missing, or the API keeps returning 401/403.
+## Goal
+
+Have a repeatable checklist when you can’t get a token, claims are missing, or the API keeps returning 401/403.
 
 ## Quick checklist
 
@@ -20,7 +22,7 @@ Goal: have a repeatable checklist when you can’t get a token, claims are missi
 Do not paste production tokens into third-party sites. Decode JWT payload locally:
 
 ```bash
-python - <<'PY'
+python3 - <<'PY'
 import base64, json, os
 
 token = os.environ.get('TOKEN')
@@ -60,3 +62,7 @@ You should see:
 
 - Log (without sensitive data): `sub`, `tenant_id`, `scope`, and rejection reason
 - Implement tenant matching once as a shared filter/middleware, then build business authorization on top
+
+## Next
+
+Continue to [07 - Production notes (short)](07-production-notes.md).

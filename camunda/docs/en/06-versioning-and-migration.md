@@ -1,6 +1,8 @@
 # 06 - Versioning and migration mindset
 
-Goal: understand how versions are created and how to evolve processes without breaking in-flight instances.
+## Goal
+
+Understand how versions are created and how to evolve processes without breaking in-flight instances.
 
 ## 1) How versions happen
 
@@ -54,3 +56,7 @@ flowchart TD
 - You know versions are created by deployments
 - You know in-flight instances don’t auto-switch
 - You know migration requires explicit planning
+
+## Next
+
+Continue to [07 - Debugging & operations (Cockpit/logs/incidents)](07-debugging-and-ops.md).

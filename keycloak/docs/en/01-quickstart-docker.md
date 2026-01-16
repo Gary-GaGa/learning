@@ -1,6 +1,8 @@
-# 01 - Docker Quickstart (Keycloak + Postgres)
+# 01 - Docker quickstart (Keycloak + Postgres)
 
-Goal: run Keycloak locally via Docker, log into the Admin Console, and create a realm.
+## Goal
+
+Run Keycloak locally via Docker, log into the Admin Console, and create a realm.
 
 ## Prerequisites
 
@@ -44,3 +46,7 @@ Note: This tutorial uses a single realm with URL-path based multi-tenancy.
 - Ports busy: ensure `8080` / `5432` are free.
 - Reset data:
   - `docker compose down -v` (deletes Postgres volume)
+
+## Next
+
+Continue to [02 - Multi-tenancy (URL path, single realm)](02-multi-tenancy-url-path.md).

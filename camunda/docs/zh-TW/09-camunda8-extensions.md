@@ -1,6 +1,8 @@
 # 09 - Camunda 8 延伸：Worker、Operate、Connectors、遷移建議
 
-目標：用「你已經會的 Camunda 7」做出 Camunda 8 的延伸圖譜：你需要學什麼、如何評估遷移。
+## 目標
+
+用「你已經會的 Camunda 7」做出 Camunda 8 的延伸圖譜：你需要學什麼、如何評估遷移。
 
 ## 1) Job Worker（Camunda 8）
 

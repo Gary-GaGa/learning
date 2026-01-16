@@ -1,6 +1,8 @@
 # 02 - Build & deploy your first process (Hello User Task)
 
-Goal: deploy a minimal BPMN, start an instance, and complete a user task in Tasklist.
+## Goal
+
+Deploy a minimal BPMN, start an instance, and complete a user task in Tasklist.
 
 We will use the sample process:
 
@@ -61,3 +63,7 @@ sequenceDiagram
 - You can see the definition in Cockpit
 - You can start an instance
 - You can complete the task in Tasklist
+
+## Next
+
+Continue to [03 - Tasklist and forms/task assignment](03-tasklist-and-forms.md).

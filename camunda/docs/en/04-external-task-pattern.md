@@ -1,6 +1,8 @@
 # 04 - External Task pattern (and workers)
 
-Goal: understand External Tasks and run automation via an out-of-engine worker.
+## Goal
+
+Understand External Tasks and run automation via an out-of-engine worker.
 
 External Tasks are a common Camunda 7 integration pattern. In Camunda 8, the equivalent concept is a Job Worker.
 
@@ -84,3 +86,7 @@ Chapter 05 ties this to incidents.
 - You can explain why workers execute External Tasks
 - You can deploy and start the process
 - You can run a worker and see the process complete
+
+## Next
+
+Continue to [05 - Variables, errors, and retries](05-variables-errors-retries.md).

@@ -1,6 +1,8 @@
 # 03 - Token claims: tenantId & mappers (manual)
 
-Goal: map the user attribute `tenantId` into the access token claim `tenant_id`.
+## Goal
+
+Map the user attribute `tenantId` into the access token claim `tenant_id`.
 
 ## 1) Create a test user
 
@@ -65,3 +67,7 @@ curl -s \
 ```
 
 Check the access token payload contains `tenant_id: "acme"`.
+
+## Next
+
+Continue to [04 - Spring Boot 3 Resource Server integration](04-spring-boot3-integration.md).

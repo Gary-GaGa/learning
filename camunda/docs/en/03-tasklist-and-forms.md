@@ -1,6 +1,8 @@
 # 03 - Tasklist and forms/task assignment
 
-Goal: understand user task assignment (candidate groups/users) and Tasklist operations.
+## Goal
+
+Understand user task assignment (candidate groups/users) and Tasklist operations.
 
 ## 1) What are candidate groups?
 
@@ -36,3 +38,7 @@ This tutorial focuses on getting “process + tasks” working end-to-end first.
 - You know how candidate groups affect visibility
 - You know Claim vs Complete
 - You understand forms are typically owned by your app
+
+## Next
+
+Continue to [04 - External Task pattern (and workers)](04-external-task-pattern.md).

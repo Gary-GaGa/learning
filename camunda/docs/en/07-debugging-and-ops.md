@@ -1,6 +1,8 @@
 # 07 - Debugging & operations (Cockpit/logs/incidents)
 
-Goal: know where to look when a process is stuck or failing.
+## Goal
+
+Know where to look when a process is stuck or failing.
 
 ## 1) Start with Cockpit
 
@@ -54,3 +56,7 @@ docker compose logs -f camunda
 - You know Cockpit + Tasklist are first stops
 - You know External Task issues are often worker/topic
 - You understand incidents require intervention
+
+## Next
+
+Continue to [08 - Camunda 8 vs Camunda 7 (architecture/execution model)](08-camunda8-differences.md).

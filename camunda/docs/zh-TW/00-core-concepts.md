@@ -1,6 +1,8 @@
 # 00 - 核心概念（Camunda 7）
 
-這章把 Camunda 7 的主要名詞與你實際會做的事對起來。
+## 目標
+
+把 Camunda 7 的主要名詞與你實際會做的事對起來。
 
 ## 你在學什麼（最小心智模型）
 
@@ -75,3 +77,7 @@ flowchart LR
 - 你能分清楚「流程定義」與「流程實例」
 - 你知道 Tasklist 用來處理 user task
 - 你知道 External Task 是引擎外部的 Worker 來做自動化
+
+## 下一步
+
+繼續到 [01 - Docker 快速開始（Camunda 7 Run）](01-quickstart-docker.md)。

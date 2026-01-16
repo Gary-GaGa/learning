@@ -1,6 +1,8 @@
 # 09 - Camunda 8 extensions: workers, Operate, Connectors, migration tips
 
-Goal: build a mental map of what to learn next in Camunda 8 and how to evaluate migration from 7.
+## Goal
+
+Build a mental map of what to learn next in Camunda 8 and how to evaluate migration from 7.
 
 ## 1) Job Workers (Camunda 8)
 

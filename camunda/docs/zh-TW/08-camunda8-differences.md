@@ -1,6 +1,8 @@
 # 08 - Camunda 8 與 Camunda 7 的差異（架構/執行模式）
 
-目標：在你已經理解 Camunda 7 後，用最少成本理解 Camunda 8 的核心差異，避免把 7 的假設直接套到 8。
+## 目標
+
+在你已經理解 Camunda 7 後，用最少成本理解 Camunda 8 的核心差異，避免把 7 的假設直接套到 8。
 
 ## 一句話差異
 
@@ -73,3 +75,7 @@ flowchart LR
 - 你知道 Camunda 8 的核心是 Zeebe（broker/gateway）
 - 你知道 Camunda 8 的自動化主要靠 Job Worker
 - 你知道 8 的周邊元件（Operate/Tasklist/Connectors）是分工架構
+
+## 下一步
+
+繼續到 [09 - Camunda 8 延伸：Worker、Operate、Connectors、遷移建議](09-camunda8-extensions.md)。

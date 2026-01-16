@@ -1,6 +1,8 @@
 # 00 - Core concepts: Realm / Client / User / Role / Group / Token
 
-This chapter helps you map Keycloak terminology to what you actually need to build: authentication + authorization for an API.
+## Goal
+
+Map Keycloak terminology to what you actually need to build: authentication + authorization for an API.
 
 ## Realm
 
@@ -108,3 +110,7 @@ Keycloak issues tokens via OIDC/OAuth2. The common ones are:
 4. Tenant APIs use `/t/{tenant}/...`
 5. API enforces `{tenant}` == token `tenant_id`
 6. Use scope/roles for feature authorization, and enforce record-level checks in the API/data layer
+
+## Next
+
+Continue to [01 - Docker quickstart (Keycloak + Postgres)](01-quickstart-docker.md).

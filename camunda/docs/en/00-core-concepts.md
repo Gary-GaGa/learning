@@ -1,6 +1,8 @@
 # 00 - Core concepts (Camunda 7)
 
-This chapter maps Camunda 7 terms to what you will actually do.
+## Goal
+
+Map Camunda 7 terms to what you will actually do.
 
 ## Minimal mental model
 
@@ -74,3 +76,7 @@ flowchart LR
 - You can explain definition vs instance
 - You know Tasklist is for user tasks
 - You know External Tasks are executed by external workers
+
+## Next
+
+Continue to [01 - Docker quickstart (Camunda 7 Run)](01-quickstart-docker.md).

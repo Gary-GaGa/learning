@@ -1,6 +1,8 @@
 # 01 - Docker quickstart (Camunda 7 Run)
 
-Goal: run Camunda 7 via Docker and log into the webapps.
+## Goal
+
+Run Camunda 7 via Docker and log into the webapps.
 
 ## 1) Start
 
@@ -35,3 +37,7 @@ If you want a clean state, bring it down and start again.
 - Engine REST: http://localhost:8090/engine-rest/engine
 
 If you see JSON output, the engine is up.
+
+## Next
+
+Continue to [02 - Build & deploy your first process (Hello User Task)](02-first-process-deploy.md).

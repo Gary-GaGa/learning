@@ -1,6 +1,8 @@
 # 06 - 除錯、檢核與工具
 
-目標：當你「拿不到 token / token 沒有你想要的 claim / API 一直 401/403」時，有一套固定的檢核流程。
+## 目標
+
+當你「拿不到 token / token 沒有你想要的 claim / API 一直 401/403」時，有一套固定的檢核流程。
 
 ## 快速檢核清單
 
@@ -20,7 +22,7 @@
 JWT 是三段 base64url。你可以用本機方式解 payload（不要把正式環境 token 丟到第三方網站）：
 
 ```bash
-python - <<'PY'
+python3 - <<'PY'
 import base64, json, os
 
 token = os.environ.get('TOKEN')
@@ -39,7 +41,7 @@ PY
 
 使用方式：
 
-- `TOKEN='eyJ...' python ...`
+- `TOKEN='eyJ...' python3 ...`
 
 你應該能看到：
 
@@ -66,3 +68,7 @@ PY
 
 - 在 API log 裡記錄（不含敏感資料）：`sub`、`tenant_id`、`scope`、拒絕原因
 - 先把租戶比對做成一個共用 filter/middleware，再做業務授權
+
+## 下一步
+
+繼續到 [07 - Production 注意事項（簡版）](07-production-notes.md)。

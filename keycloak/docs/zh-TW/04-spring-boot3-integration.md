@@ -1,6 +1,8 @@
 # 04 - Spring Boot 3 Resource Server 整合
 
-目標：用 Spring Boot 3 + Spring Security 驗證 Keycloak JWT，並完成：
+## 目標
+
+用 Spring Boot 3 + Spring Security 驗證 Keycloak JWT，並完成：
 
 - 解析 token claim `tenant_id`
 - 解析 roles / scope → Spring Authorities
@@ -39,3 +41,7 @@
 - `GET http://localhost:8081/t/acme/reports`
 
 > 下一章會補上 scope/role 與細粒度授權混合的完整練習流程。
+
+## 下一步
+
+繼續到 [05 - 細粒度授權（混合：Keycloak + API）](05-fine-grained-hybrid-authorization.md)。

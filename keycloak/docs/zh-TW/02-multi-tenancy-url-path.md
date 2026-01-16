@@ -1,6 +1,8 @@
 # 02 - 多租戶（URL path，單 Realm）
 
-目標：定義你的 API URL 格式，並設計「token claim 的 `tenant_id` 必須等於 URL path 的 `{tenant}`」的安全規則。
+## 目標
+
+定義你的 API URL 格式，並設計「token claim 的 `tenant_id` 必須等於 URL path 的 `{tenant}`」的安全規則。
 
 ## URL 約定
 
@@ -75,3 +77,7 @@ sequenceDiagram
 
 - 一個使用者是否允許同時屬於多個租戶？（本教學先用單租戶，後續可擴充）
 - 你的 API 在哪個 middleware/filter 做 tenant 比對？（我們在 Spring Boot 章節做）
+
+## 下一步
+
+繼續到 [03 - Token claim：tenantId 與 Mapper（手動）](03-token-claims-tenant.md)。

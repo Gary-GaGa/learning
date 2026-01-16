@@ -1,6 +1,8 @@
 # 07 - 除錯與維運（Cockpit/Logs/Incidents）
 
-目標：當流程卡住或失敗時，你知道去哪裡看、怎麼定位問題。
+## 目標
+
+當流程卡住或失敗時，你知道去哪裡看、怎麼定位問題。
 
 ## 1) 先看 Cockpit
 
@@ -54,3 +56,7 @@ docker compose logs -f camunda
 - 你知道流程卡住先看 Cockpit + Tasklist
 - 你知道 External Task 卡住多半是 worker/topic 問題
 - 你知道 incident 是需要介入處理的訊號
+
+## 下一步
+
+繼續到 [08 - Camunda 8 與 Camunda 7 的差異（架構/執行模式）](08-camunda8-differences.md)。

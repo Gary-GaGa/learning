@@ -1,6 +1,8 @@
 # 04 - External Task 模式（與 Worker）
 
-目標：理解 External Task 的運作方式，並把流程中的自動化步驟交給引擎外部的 Worker。
+## 目標
+
+理解 External Task 的運作方式，並把流程中的自動化步驟交給引擎外部的 Worker。
 
 > External Task 是 Camunda 7 常見整合方式；到 Camunda 8 會用「Job Worker」取代（概念相近但架構不同）。
 
@@ -86,3 +88,7 @@ Worker 做事失敗時通常有兩類：
 - 你知道 External Task 不是「引擎自己做」，而是由 Worker 做
 - 你能部署流程並啟動實例
 - 你能執行 Worker 並看到流程往下完成
+
+## 下一步
+
+繼續到 [05 - 流程變數、錯誤與重試](05-variables-errors-retries.md)。

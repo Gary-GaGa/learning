@@ -1,6 +1,8 @@
 # 02 - Multi-tenancy (URL path, single realm)
 
-Goal: standardize your API URL format and enforce a strict rule: the token claim `tenant_id` must match `{tenant}` in the URL path.
+## Goal
+
+Standardize your API URL format and enforce a strict rule: the token claim `tenant_id` must match `{tenant}` in the URL path.
 
 ## URL convention
 
@@ -72,3 +74,7 @@ Next chapter maps it to the access token claim `tenant_id`.
 
 - Do you allow users in multiple tenants? (This tutorial starts with single-tenant users.)
 - Where do you enforce tenant matching in the API? (We do it in the Spring Boot section.)
+
+## Next
+
+Continue to [03 - Token claims: tenantId & mappers (manual)](03-token-claims-tenant.md).

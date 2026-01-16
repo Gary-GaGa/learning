@@ -1,6 +1,8 @@
 # 05 - Variables, errors, and retries
 
-Goal: use variables safely and understand BPMN Error vs Failure vs Incident.
+## Goal
+
+Use variables safely and understand BPMN Error vs Failure vs Incident.
 
 ## 1) Variables
 
@@ -45,3 +47,7 @@ A typical strategy:
 - You can explain BPMN Error vs Incident
 - You know workers control retries for External Tasks
 - You understand variables are core process state
+
+## Next
+
+Continue to [06 - Versioning and migration mindset](06-versioning-and-migration.md).

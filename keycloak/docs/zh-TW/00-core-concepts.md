@@ -1,6 +1,8 @@
 # 00 - 核心概念：Realm / Client / User / Role / Group / Token
 
-這章的目標是讓你能把 Keycloak 的「名詞」對應到「你要做的權限系統」。你不需要一次背完，但要知道每個東西拿來做什麼。
+## 目標
+
+把 Keycloak 的「名詞」對應到「你要做的權限系統」。你不需要一次背完，但要知道每個東西拿來做什麼。
 
 ## Realm（領域）
 
@@ -108,3 +110,7 @@ Keycloak 在 OIDC/OAuth2 中會發 token。最常用的是：
 4. 你的 API URL 使用 `/t/{tenant}/...`
 5. API 端驗證：`{tenant}` 必須等於 token 的 `tenant_id`
 6. 再用 scope/role 決定可不可以讀/寫，並在資料層確認資料真的屬於該租戶
+
+## 下一步
+
+繼續到 [01 - Docker 快速開始（Keycloak + Postgres）](01-quickstart-docker.md)。

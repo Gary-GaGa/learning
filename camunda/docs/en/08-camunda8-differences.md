@@ -1,6 +1,8 @@
 # 08 - Camunda 8 vs Camunda 7 (architecture/execution model)
 
-Goal: once you understand Camunda 7, learn Camunda 8 differences quickly and avoid carrying over the wrong assumptions.
+## Goal
+
+Once you understand Camunda 7, learn Camunda 8 differences quickly and avoid carrying over the wrong assumptions.
 
 ## One-sentence difference
 
@@ -73,3 +75,7 @@ flowchart LR
 - You know Zeebe is the core of Camunda 8
 - You know Camunda 8 automation is mainly Job Workers
 - You know Operate/Tasklist/Connectors are split components
+
+## Next
+
+Continue to [09 - Camunda 8 extensions: workers, Operate, Connectors, migration tips](09-camunda8-extensions.md).

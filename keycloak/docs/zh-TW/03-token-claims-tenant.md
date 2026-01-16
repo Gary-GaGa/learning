@@ -1,6 +1,8 @@
 # 03 - Token claim：tenantId 與 Mapper（手動）
 
-目標：把 Keycloak user attribute `tenantId` 映射到 access token claim `tenant_id`。
+## 目標
+
+把 Keycloak user attribute `tenantId` 映射到 access token claim `tenant_id`。
 
 ## 1) 建立測試使用者
 
@@ -68,3 +70,7 @@ curl -s \
 ```
 
 檢核：把 access token 丟到 jwt.io 或用 `jq` 解開（不要上傳正式環境 token），你應該看到 `tenant_id: "acme"`。
+
+## 下一步
+
+繼續到 [04 - Spring Boot 3 Resource Server 整合](04-spring-boot3-integration.md)。

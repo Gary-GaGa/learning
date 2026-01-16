@@ -1,6 +1,8 @@
 # 07 - Production notes (short)
 
-This is a gap-check between learning configs and production.
+## Goal
+
+Gap-check between learning configs and production.
 
 ## Do not reuse learning settings
 

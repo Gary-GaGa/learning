@@ -1,6 +1,8 @@
 # 05 - Fine-grained authorization (hybrid: Keycloak + API)
 
-Goal: secure both feature-level and resource-level access.
+## Goal
+
+Secure both feature-level and resource-level access.
 
 - Feature-level authorization: scope/roles (managed in Keycloak)
 - Resource-level authorization: enforced in the API (tenant + ownership/ACL)
@@ -50,3 +52,5 @@ In the demo API we will:
 - use `hasAuthority("SCOPE_reports:read")` for reads
 - use `hasAuthority("SCOPE_reports:write")` for writes
 - enforce tenant and data consistency in code
+
+Continue to [06 - Debugging, checks, and tools](06-debugging-and-tools.md).

@@ -1,6 +1,8 @@
 # 03 - Tasklist 與表單/任務指派
 
-目標：理解 user task 的指派模型（candidate groups/users）與 Tasklist 的操作。
+## 目標
+
+理解 user task 的指派模型（candidate groups/users）與 Tasklist 的操作。
 
 ## 1) candidate groups 是什麼
 
@@ -42,3 +44,7 @@ Camunda 7 常見表單做法：
 - 你知道 candidate groups 影響誰看得到任務
 - 你知道 Claim 與 Complete 的差異
 - 你知道表單通常是你的系統負責，流程只保存狀態與資料
+
+## 下一步
+
+繼續到 [04 - External Task 模式（與 Worker）](04-external-task-pattern.md)。
