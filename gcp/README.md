@@ -1,52 +1,26 @@
-# GCP 學習筆記
+# GCP Learning Notes / GCP 學習筆記
 
-針對 Google Cloud Platform 常用服務的學習筆記與可執行範例，重點放在「概念 → 指令 → 常見坑」的串接。
+Notes and runnable examples for common Google Cloud Platform services.
+針對 Google Cloud Platform 常用服務的學習筆記與可執行範例。
 
-## 目錄
+Each topic follows a **concepts → commands → common pitfalls** structure.
+每篇遵循「**概念 → 指令 → 常見坑**」的結構。
 
-| 主題 | 內容 | 連結 |
-| --- | --- | --- |
-| 01 | GCP 基礎（專案、IAM、計費、`gcloud` CLI） | [01-fundamentals.md](./01-fundamentals.md) |
-| 02 | GKE（Google Kubernetes Engine） | [02-gke.md](./02-gke.md) |
-| 03 | Cloud Storage（GCS） | [03-cloud-storage.md](./03-cloud-storage.md) |
-| 04 | Pub/Sub | [04-pubsub.md](./04-pubsub.md) |
+## Pick your language / 選擇語言
 
-## 環境準備
+- **English** → [`en/README.md`](./en/README.md)
+- **中文** → [`zh/README.md`](./zh/README.md)
 
-所有範例假設你已經：
+## Topics covered / 收錄主題
 
-1. 安裝 [Google Cloud SDK](https://cloud.google.com/sdk/docs/install)（提供 `gcloud`、`gsutil`）。
-2. 登入並設定預設專案：
-
-   ```bash
-   gcloud auth login
-   gcloud auth application-default login   # 給 SDK / Terraform 使用 ADC
-   gcloud config set project YOUR_PROJECT_ID
-   gcloud config set compute/region asia-east1
-   gcloud config set compute/zone   asia-east1-b
-   ```
-
-3. 啟用會用到的 API（按需要啟用即可，不必一次全開）：
-
-   ```bash
-   gcloud services enable \
-     container.googleapis.com \
-     storage.googleapis.com \
-     pubsub.googleapis.com \
-     artifactregistry.googleapis.com
-   ```
-
-## 學習建議路徑
-
-1. 先讀 **01-fundamentals**：理解專案、IAM、計費單位，避免之後做實驗時誤刪資源或被收費嚇到。
-2. 接 **03-cloud-storage**：最單純的服務，熟悉 `gcloud` / `gsutil` 與 IAM 套用方式。
-3. 再讀 **04-pubsub**：理解非同步訊息模型、Push vs Pull。
-4. 最後做 **02-gke**：把上面三者組合起來——把容器部署到 GKE，從 GCS 讀檔、從 Pub/Sub 接訊息。
-
-## 收費警示
-
-> 動手做之前，**先設好預算告警**。GKE Standard 即使閒置也會持續計費（control plane + 節點 VM）；Cloud Storage 的 egress 與 Pub/Sub 的訊息量都可能爆量。
-
-```bash
-# 建議到 console 設定 Billing → Budgets & alerts，例如月預算 NT$500、80% 告警
-```
+| # | Topic / 主題 | EN | ZH |
+| --- | --- | --- | --- |
+| 01 | Fundamentals (IAM, projects, gcloud) / 基礎 | [en](./en/01-fundamentals.md) | [zh](./zh/01-fundamentals.md) |
+| 02 | GKE | [en](./en/02-gke.md) | [zh](./zh/02-gke.md) |
+| 03 | Cloud Storage | [en](./en/03-cloud-storage.md) | [zh](./zh/03-cloud-storage.md) |
+| 04 | Pub/Sub | [en](./en/04-pubsub.md) | [zh](./zh/04-pubsub.md) |
+| 05 | Cloud Run | [en](./en/05-cloud-run.md) | [zh](./zh/05-cloud-run.md) |
+| 06 | BigQuery | [en](./en/06-bigquery.md) | [zh](./zh/06-bigquery.md) |
+| 07 | Cloud SQL | [en](./en/07-cloud-sql.md) | [zh](./zh/07-cloud-sql.md) |
+| 08 | Artifact Registry | [en](./en/08-artifact-registry.md) | [zh](./zh/08-artifact-registry.md) |
+| 09 | VPC & Networking / VPC 與 Networking | [en](./en/09-vpc-networking.md) | [zh](./zh/09-vpc-networking.md) |
