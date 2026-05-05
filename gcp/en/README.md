@@ -19,6 +19,14 @@ Notes and runnable examples for common Google Cloud Platform services. Each topi
 | 09 | VPC and Networking | [09-vpc-networking.md](./09-vpc-networking.md) |
 | 10 | Observability (Cloud Logging, Monitoring) | [10-observability.md](./10-observability.md) |
 | 11 | Secret Manager and Cloud KMS | [11-secret-manager-kms.md](./11-secret-manager-kms.md) |
+| 12 | Compute Engine (GCE / VMs) | [12-compute-engine.md](./12-compute-engine.md) |
+| 13 | Cost management (FinOps) | [13-cost-management.md](./13-cost-management.md) |
+| 14 | IAM advanced (Conditions, Org Policy, VPC-SC, WIF) | [14-iam-advanced.md](./14-iam-advanced.md) |
+| 15 | HTTPS Load Balancer (deep dive) | [15-load-balancer.md](./15-load-balancer.md) |
+| 16 | CI/CD: Cloud Build & Cloud Deploy | [16-cicd.md](./16-cicd.md) |
+| 17 | Terraform / IaC | [17-terraform.md](./17-terraform.md) |
+
+**End-to-end demo**: [`demo/`](../demo/README.md) — an "orders" mini-system wiring Cloud Run + Pub/Sub + GCS + Cloud SQL + Secret Manager + Artifact Registry + Terraform. Runnable with `terraform apply`.
 
 ## Setup
 
@@ -55,6 +63,10 @@ All examples assume you have:
 6. Need a database → **07-cloud-sql**; need analytics → **06-bigquery**.
 7. Advanced: **09-vpc-networking** — put all of the above into a private network, learn firewalls, NAT, Shared VPC.
 8. Before production: **10-observability** (so you can see problems) and **11-secret-manager-kms** (don't push passwords to git).
+9. **12-compute-engine**: a VM is what underpins GKE nodes and Cloud SQL — understand it.
+10. Operating maturity: **13-cost-management** (don't blow the budget), **14-iam-advanced** (enterprise-grade permissions), **15-load-balancer** (full recipe for an external website).
+11. Automation: **16-cicd** (Cloud Build / Cloud Deploy / GitHub Actions) → **17-terraform** (IaC, **mandatory**).
+12. Tie it all together: walk through the [`demo/`](../demo/README.md) end-to-end project.
 
 ## Cost warning
 

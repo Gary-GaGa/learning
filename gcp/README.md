@@ -26,3 +26,14 @@ Each topic follows a **concepts → commands → common pitfalls** structure.
 | 09 | VPC & Networking / VPC 與 Networking | [en](./en/09-vpc-networking.md) | [zh](./zh/09-vpc-networking.md) |
 | 10 | Observability (Logging / Monitoring) / 觀測性 | [en](./en/10-observability.md) | [zh](./zh/10-observability.md) |
 | 11 | Secret Manager & KMS / 敏感資料 | [en](./en/11-secret-manager-kms.md) | [zh](./zh/11-secret-manager-kms.md) |
+| 12 | Compute Engine / GCE | [en](./en/12-compute-engine.md) | [zh](./zh/12-compute-engine.md) |
+| 13 | Cost management / 成本管理 | [en](./en/13-cost-management.md) | [zh](./zh/13-cost-management.md) |
+| 14 | IAM advanced / IAM 進階 | [en](./en/14-iam-advanced.md) | [zh](./zh/14-iam-advanced.md) |
+| 15 | HTTPS Load Balancer | [en](./en/15-load-balancer.md) | [zh](./zh/15-load-balancer.md) |
+| 16 | CI/CD (Cloud Build & Deploy) | [en](./en/16-cicd.md) | [zh](./zh/16-cicd.md) |
+| 17 | Terraform / IaC | [en](./en/17-terraform.md) | [zh](./zh/17-terraform.md) |
+
+## End-to-end demo / 端對端示範
+
+[`demo/`](./demo/README.md) — an Orders mini-system wiring Cloud Run + Pub/Sub + GCS + Cloud SQL + Secret Manager + Artifact Registry, provisioned with Terraform.
+[`demo/`](./demo/README.zh.md) — 串起 Cloud Run + Pub/Sub + GCS + Cloud SQL + Secret Manager + Artifact Registry 的訂單小系統，附 Terraform。

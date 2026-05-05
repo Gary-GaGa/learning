@@ -19,6 +19,14 @@
 | 09 | VPC 與 Networking | [09-vpc-networking.md](./09-vpc-networking.md) |
 | 10 | 觀測性（Cloud Logging、Monitoring） | [10-observability.md](./10-observability.md) |
 | 11 | Secret Manager 與 Cloud KMS | [11-secret-manager-kms.md](./11-secret-manager-kms.md) |
+| 12 | Compute Engine（GCE / VM） | [12-compute-engine.md](./12-compute-engine.md) |
+| 13 | 成本管理（FinOps） | [13-cost-management.md](./13-cost-management.md) |
+| 14 | IAM 進階（Conditions、Org Policy、VPC-SC、WIF） | [14-iam-advanced.md](./14-iam-advanced.md) |
+| 15 | HTTPS Load Balancer（深入） | [15-load-balancer.md](./15-load-balancer.md) |
+| 16 | CI/CD：Cloud Build 與 Cloud Deploy | [16-cicd.md](./16-cicd.md) |
+| 17 | Terraform / IaC | [17-terraform.md](./17-terraform.md) |
+
+**端對端示範**：[`demo/`](../demo/README.zh.md) — 用 Cloud Run + Pub/Sub + GCS + Cloud SQL + Secret Manager + Artifact Registry + Terraform 串成「訂單小系統」，可直接 `terraform apply` 跑。
 
 ## 環境準備
 
@@ -55,6 +63,10 @@
 6. 需要資料庫 → **07-cloud-sql**；需要分析 → **06-bigquery**。
 7. 進階：**09-vpc-networking** — 把上面這些放進私網裡，理解 firewall、NAT、Shared VPC。
 8. 上 production 前必看：**10-observability**（要看得到問題）+ **11-secret-manager-kms**（不要把密碼推上 git）。
+9. **12-compute-engine**：理解 VM 是 GKE node / Cloud SQL 底下的東西。
+10. 維運深化：**13-cost-management**（不要爆預算）、**14-iam-advanced**（企業級權限）、**15-load-balancer**（對外網站的完整配方）。
+11. 自動化：**16-cicd**（Cloud Build / Cloud Deploy / GitHub Actions）→ **17-terraform**（IaC，**必學**）。
+12. 把所學整合：跑一次 [`demo/`](../demo/README.zh.md) 端對端示範。
 
 ## 收費警示
 
