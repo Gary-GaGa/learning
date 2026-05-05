@@ -17,6 +17,8 @@ Notes and runnable examples for common Google Cloud Platform services. Each topi
 | 07 | Cloud SQL (managed RDB) | [07-cloud-sql.md](./07-cloud-sql.md) |
 | 08 | Artifact Registry (image / package registry) | [08-artifact-registry.md](./08-artifact-registry.md) |
 | 09 | VPC and Networking | [09-vpc-networking.md](./09-vpc-networking.md) |
+| 10 | Observability (Cloud Logging, Monitoring) | [10-observability.md](./10-observability.md) |
+| 11 | Secret Manager and Cloud KMS | [11-secret-manager-kms.md](./11-secret-manager-kms.md) |
 
 ## Setup
 
@@ -52,6 +54,7 @@ All examples assume you have:
 5. Want to run a service without managing a cluster → **05-cloud-run**; want full Kubernetes → **02-gke**.
 6. Need a database → **07-cloud-sql**; need analytics → **06-bigquery**.
 7. Advanced: **09-vpc-networking** — put all of the above into a private network, learn firewalls, NAT, Shared VPC.
+8. Before production: **10-observability** (so you can see problems) and **11-secret-manager-kms** (don't push passwords to git).
 
 ## Cost warning
 

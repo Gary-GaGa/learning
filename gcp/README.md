@@ -24,3 +24,5 @@ Each topic follows a **concepts → commands → common pitfalls** structure.
 | 07 | Cloud SQL | [en](./en/07-cloud-sql.md) | [zh](./zh/07-cloud-sql.md) |
 | 08 | Artifact Registry | [en](./en/08-artifact-registry.md) | [zh](./zh/08-artifact-registry.md) |
 | 09 | VPC & Networking / VPC 與 Networking | [en](./en/09-vpc-networking.md) | [zh](./zh/09-vpc-networking.md) |
+| 10 | Observability (Logging / Monitoring) / 觀測性 | [en](./en/10-observability.md) | [zh](./zh/10-observability.md) |
+| 11 | Secret Manager & KMS / 敏感資料 | [en](./en/11-secret-manager-kms.md) | [zh](./zh/11-secret-manager-kms.md) |

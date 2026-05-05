@@ -17,6 +17,8 @@
 | 07 | Cloud SQL（託管 RDB） | [07-cloud-sql.md](./07-cloud-sql.md) |
 | 08 | Artifact Registry（image / package registry） | [08-artifact-registry.md](./08-artifact-registry.md) |
 | 09 | VPC 與 Networking | [09-vpc-networking.md](./09-vpc-networking.md) |
+| 10 | 觀測性（Cloud Logging、Monitoring） | [10-observability.md](./10-observability.md) |
+| 11 | Secret Manager 與 Cloud KMS | [11-secret-manager-kms.md](./11-secret-manager-kms.md) |
 
 ## 環境準備
 
@@ -52,6 +54,7 @@
 5. 想跑服務又不想管 cluster → **05-cloud-run**；想用完整 K8s → **02-gke**。
 6. 需要資料庫 → **07-cloud-sql**；需要分析 → **06-bigquery**。
 7. 進階：**09-vpc-networking** — 把上面這些放進私網裡，理解 firewall、NAT、Shared VPC。
+8. 上 production 前必看：**10-observability**（要看得到問題）+ **11-secret-manager-kms**（不要把密碼推上 git）。
 
 ## 收費警示
 
