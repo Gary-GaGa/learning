@@ -18,9 +18,9 @@ Every topic includes Docker / Terraform / source code you can actually run.
 
 ## 從哪裡開始 / Where to start
 
-- 雲端基礎入門 → **GCP**：先讀 [`gcp/zh/00-overview.md`](./gcp/zh/00-overview.md) ｜ [`gcp/en/00-overview.md`](./gcp/en/00-overview.md)
-- 身份驗證 / 授權 → **Keycloak**：[`keycloak/docs/zh-TW/`](./keycloak/docs/zh-TW/README.md) ｜ [`keycloak/docs/en/`](./keycloak/docs/en/README.md)
-- 工作流程引擎 → **Camunda**：[`camunda/docs/zh-TW/`](./camunda/docs/zh-TW/README.md) ｜ [`camunda/docs/en/`](./camunda/docs/en/README.md)
+- 雲端基礎入門 → **GCP**：[`gcp/zh/00-overview.md`](./gcp/zh/00-overview.md) ｜ [`gcp/en/00-overview.md`](./gcp/en/00-overview.md)
+- 身份驗證 / 授權 → **Keycloak**：[`keycloak/zh/00-overview.md`](./keycloak/zh/00-overview.md) ｜ [`keycloak/en/00-overview.md`](./keycloak/en/00-overview.md)
+- 工作流程引擎 → **Camunda**：[`camunda/zh/00-overview.md`](./camunda/zh/00-overview.md) ｜ [`camunda/en/00-overview.md`](./camunda/en/00-overview.md)
 
 ## 原則 / Principles
 
