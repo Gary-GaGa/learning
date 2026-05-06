@@ -25,10 +25,11 @@
 
 - `spring-boot-demo/`：示範多租戶 URL path、JWT 驗證、授權與資料層強制。
 
-## 教學文件
+## 教學文件 / Tutorials
 
-- 中文（繁體）：[docs/zh-TW/README.md](docs/zh-TW/README.md)
-- English: [docs/en/README.md](docs/en/README.md)
+- 中文：[zh/README.md](zh/README.md) — 從 [zh/00-overview.md](zh/00-overview.md) 開始
+- English: [en/README.md](en/README.md) — start with [en/00-overview.md](en/00-overview.md)
+- 🆘 Troubleshooting：[zh](zh/troubleshooting.md) ｜ [en](en/troubleshooting.md)
 
 ## 需求
 
