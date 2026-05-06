@@ -126,6 +126,24 @@ GCP 有多種 LB，新手最容易選錯：
 
 > 大多數情況：對外網站 → **Global External Application LB**；內部微服務 → **Internal Application LB**；GKE 用 `Service type=LoadBalancer` 或 Ingress 會自動建。
 
+### LB 選擇決策樹
+
+```mermaid
+flowchart TD
+  A[需要 LB] --> B{流量從哪來?}
+  B -->|公開網際網路| C{HTTP/S 還是 TCP/UDP?}
+  B -->|VPC 內部| D{HTTP/S 還是 TCP/UDP?}
+
+  C -->|HTTP/S| C1{需要全球 anycast?}
+  C1 -->|是<br/>多 region| C2[Global External<br/>Application LB ★最常用]
+  C1 -->|否<br/>單 region| C3[Regional External<br/>Application LB]
+  C -->|TCP/UDP<br/>+ 要保留 client IP| C4[External Passthrough<br/>Network LB]
+  C -->|TCP/SSL<br/>全球| C5[Global External<br/>Proxy Network LB]
+
+  D -->|HTTP/S| D1[Internal Application LB]
+  D -->|TCP/UDP| D2[Internal Passthrough<br/>Network LB]
+```
+
 ## 8. VPN / Interconnect（連到地端）
 
 | 選項 | 適合 | 速度 | 成本 |

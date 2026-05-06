@@ -2,6 +2,31 @@
 
 GKE 是 GCP 託管的 Kubernetes。它幫你扛掉 control plane（API server、etcd、scheduler）的維運，你只要關心 workload 與（在 Standard 模式下）node。
 
+```mermaid
+flowchart TB
+  subgraph google[Google 管的部分]
+    CP[Control Plane<br/>API server / etcd / scheduler]
+  end
+
+  subgraph user["你管的部分（Standard 才看得到 node）"]
+    direction LR
+    subgraph nodepool[Node Pool]
+      N1[Node = GCE VM]
+      N2[Node = GCE VM]
+    end
+    subgraph workloads[Workloads]
+      D[Deployment<br/>Pod / Pod / Pod]
+      S[Service<br/>LoadBalancer / ClusterIP]
+      I[Ingress<br/>→ GCLB]
+    end
+  end
+
+  CP <-->|kubectl| nodepool
+  D -.scheduled to.-> nodepool
+  S --> D
+  I --> S
+```
+
 ## 1. Standard vs Autopilot
 
 | 項目 | Standard | Autopilot |
@@ -102,6 +127,23 @@ curl http://EXTERNAL-IP
 ## 5. Workload Identity（重要）
 
 讓 Pod 用 GCP IAM 身份（而不是塞 service account key 進 image）。**正式環境一定要用這個**。
+
+```mermaid
+sequenceDiagram
+  participant Pod as Pod (用 K8s SA: app-sa)
+  participant GKE as GKE Workload Identity
+  participant IAM as GCP IAM
+  participant API as Google API (e.g. GCS)
+
+  Pod->>GKE: 我要 token
+  GKE->>IAM: 「app-sa」要扮演 gke-app@PROJECT
+  IAM-->>GKE: 短期 access token
+  GKE-->>Pod: token
+  Pod->>API: 帶 token 呼叫 API
+  API-->>Pod: 回應
+```
+
+三個必須做的綁定：(1) Cluster 開 workload-pool；(2) GCP SA 給 K8s SA `iam.workloadIdentityUser`；(3) K8s SA 加 annotation 指向 GCP SA。少一步都不會通。
 
 ```bash
 # 1. 開 cluster 上的 Workload Identity（Autopilot 預設開啟）

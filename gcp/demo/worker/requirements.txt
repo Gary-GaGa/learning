@@ -3,4 +3,3 @@ gunicorn==22.0.0
 sqlalchemy==2.0.36
 pg8000==1.31.2
 cloud-sql-python-connector==1.13.0
-google-auth==2.35.0

@@ -31,16 +31,14 @@ gcloud run services update "${PREFIX}-api" \
   --region="${REGION}" \
   --quiet
 
-WORKER_URL=$(gcloud run services describe "${PREFIX}-worker" --region="${REGION}" --format="value(status.url)")
-
-echo "==> Rolling out Cloud Run: ${PREFIX}-worker (PUSH_AUDIENCE=${WORKER_URL})"
+echo "==> Rolling out Cloud Run: ${PREFIX}-worker"
 gcloud run services update "${PREFIX}-worker" \
   --image="${WORKER_IMAGE}" \
   --region="${REGION}" \
-  --update-env-vars="PUSH_AUDIENCE=${WORKER_URL}" \
   --quiet
 
 API_URL=$(gcloud run services describe "${PREFIX}-api" --region="${REGION}" --format="value(status.url)")
+WORKER_URL=$(gcloud run services describe "${PREFIX}-worker" --region="${REGION}" --format="value(status.url)")
 echo
 echo "Done."
 echo "  API URL    : ${API_URL}"

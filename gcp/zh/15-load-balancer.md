@@ -4,20 +4,21 @@
 
 ## 1. 解剖
 
-```
-Forwarding Rule (公開 IP + port)
-   │
-   ▼
-Target HTTPS Proxy   ← 綁 SSL Certificate
-   │
-   ▼
-URL Map              ← 依 host / path 路由
-   │
-   ▼
-Backend Service      ← 健康檢查、session affinity、超時
-   │
-   ▼
-Backend (NEG / MIG / Bucket)
+```mermaid
+flowchart TD
+  Client[Client] --> FR[Forwarding Rule<br/>公開 IP + port 443]
+  FR --> TP[Target HTTPS Proxy]
+  SSL[SSL Certificate<br/>managed / self-managed] --> TP
+  TP --> UM[URL Map<br/>依 host / path 路由]
+  UM --> BS1[Backend Service A<br/>health check / timeout / affinity]
+  UM --> BS2[Backend Service B]
+  BS1 --> NEG[Serverless NEG]
+  NEG --> CR[Cloud Run]
+  BS2 --> MIG[MIG]
+  MIG --> VM1[GCE VM]
+  MIG --> VM2[GCE VM]
+  Armor[Cloud Armor<br/>WAF / rate-limit] -.attached.-> BS1
+  Armor -.attached.-> BS2
 ```
 
 5 層物件，每一層獨立可改。第一次接手會頭暈，但拆開後每層做的事很單純。

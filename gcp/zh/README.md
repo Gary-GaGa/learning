@@ -4,10 +4,17 @@
 
 針對 Google Cloud Platform 常用服務的學習筆記與可執行範例，重點放在「概念 → 指令 → 常見坑」的串接。
 
+## 從這裡開始
+
+🗺️ **第一次看？先讀 [00-overview.md](./00-overview.md)**——一張圖看完所有主題的關係、三條學習路徑、詞彙表。
+
+🆘 **卡住了？看 [troubleshooting.md](./troubleshooting.md)**——Auth/網路/部署/帳單/Pub/Sub/Terraform 的決策樹。
+
 ## 目錄
 
 | 主題 | 內容 | 連結 |
 | --- | --- | --- |
+| 00 | 總覽（topic map / 詞彙表 / 學習路徑） | [00-overview.md](./00-overview.md) |
 | 01 | GCP 基礎（專案、IAM、計費、`gcloud` CLI） | [01-fundamentals.md](./01-fundamentals.md) |
 | 02 | GKE（Google Kubernetes Engine） | [02-gke.md](./02-gke.md) |
 | 03 | Cloud Storage（GCS） | [03-cloud-storage.md](./03-cloud-storage.md) |
@@ -25,6 +32,7 @@
 | 15 | HTTPS Load Balancer（深入） | [15-load-balancer.md](./15-load-balancer.md) |
 | 16 | CI/CD：Cloud Build 與 Cloud Deploy | [16-cicd.md](./16-cicd.md) |
 | 17 | Terraform / IaC | [17-terraform.md](./17-terraform.md) |
+| 🆘 | Troubleshooting：常見問題決策樹 | [troubleshooting.md](./troubleshooting.md) |
 
 **端對端示範**：[`demo/`](../demo/README.zh.md) — 用 Cloud Run + Pub/Sub + GCS + Cloud SQL + Secret Manager + Artifact Registry + Terraform 串成「訂單小系統」，可直接 `terraform apply` 跑。
 

@@ -126,6 +126,24 @@ GCP has many LB types — easy to pick the wrong one as a beginner:
 
 > Most common: external website → **Global External Application LB**; internal microservices → **Internal Application LB**; GKE creates these automatically via `Service type=LoadBalancer` or Ingress.
 
+### LB selection decision tree
+
+```mermaid
+flowchart TD
+  A[Need a LB] --> B{Traffic origin?}
+  B -->|Public internet| C{HTTP/S or TCP/UDP?}
+  B -->|VPC internal| D{HTTP/S or TCP/UDP?}
+
+  C -->|HTTP/S| C1{Global anycast?}
+  C1 -->|Yes<br/>multi-region| C2[Global External<br/>Application LB ★most common]
+  C1 -->|No<br/>single region| C3[Regional External<br/>Application LB]
+  C -->|TCP/UDP<br/>preserve client IP| C4[External Passthrough<br/>Network LB]
+  C -->|TCP/SSL<br/>global| C5[Global External<br/>Proxy Network LB]
+
+  D -->|HTTP/S| D1[Internal Application LB]
+  D -->|TCP/UDP| D2[Internal Passthrough<br/>Network LB]
+```
+
 ## 8. VPN / Interconnect (connect to on-prem)
 
 | Option | Best for | Speed | Cost |

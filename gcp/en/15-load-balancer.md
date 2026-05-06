@@ -4,20 +4,21 @@
 
 ## 1. Anatomy
 
-```
-Forwarding Rule (public IP + port)
-   │
-   ▼
-Target HTTPS Proxy   ← attaches the SSL Certificate
-   │
-   ▼
-URL Map              ← routes by host / path
-   │
-   ▼
-Backend Service      ← health checks, session affinity, timeouts
-   │
-   ▼
-Backend (NEG / MIG / Bucket)
+```mermaid
+flowchart TD
+  Client[Client] --> FR[Forwarding Rule<br/>public IP + port 443]
+  FR --> TP[Target HTTPS Proxy]
+  SSL[SSL Certificate<br/>managed / self-managed] --> TP
+  TP --> UM[URL Map<br/>route by host / path]
+  UM --> BS1[Backend Service A<br/>health check / timeout / affinity]
+  UM --> BS2[Backend Service B]
+  BS1 --> NEG[Serverless NEG]
+  NEG --> CR[Cloud Run]
+  BS2 --> MIG[MIG]
+  MIG --> VM1[GCE VM]
+  MIG --> VM2[GCE VM]
+  Armor[Cloud Armor<br/>WAF / rate-limit] -.attached.-> BS1
+  Armor -.attached.-> BS2
 ```
 
 Five layered objects, each independently editable. Confusing on first contact, but each layer has a single job.

@@ -4,12 +4,29 @@ Before touching any service, you need to understand GCP's resource layout and id
 
 ## 1. Resource hierarchy
 
+```mermaid
+flowchart TD
+  Org[Organization<br/>example.com]
+  F1[Folder: prod]
+  F2[Folder: dev]
+  P1[Project: web-prod]
+  P2[Project: data-prod]
+  P3[Project: web-dev]
+  R1[GKE cluster<br/>GCS bucket<br/>Pub/Sub topic ...]
+  R2[BigQuery dataset<br/>Cloud SQL ...]
+  R3[Cloud Run<br/>Artifact Registry ...]
+
+  Org --> F1
+  Org --> F2
+  F1 --> P1
+  F1 --> P2
+  F2 --> P3
+  P1 --> R1
+  P2 --> R2
+  P3 --> R3
 ```
-Organization
-└── Folder (optional, for departments / environments)
-    └── Project   ← billing, API, IAM boundary
-        └── Resource (GKE cluster, GCS bucket, Pub/Sub topic …)
-```
+
+Key idea: **permissions inherit downward** along this tree. A role granted on a Folder is effective on every project below it.
 
 - **Project** is the unit of billing and permissions. Every resource belongs to one.
 - One account can own many projects; usually you'll want at least `dev` / `prod`.
@@ -19,10 +36,37 @@ Organization
 
 ## 2. IAM (Identity and Access Management)
 
-GCP permission formula:
+GCP permission formula: **Principal + Resource + Role**.
 
-```
-Principal  +  Resource  +  Role
+```mermaid
+flowchart LR
+  subgraph principals[Principal<br/>who]
+    U[user:alice@…]
+    G[group:dev@…]
+    SA[serviceAccount:<br/>app@…]
+    DOM[domain:example.com]
+  end
+
+  subgraph binding[IAM Binding<br/>ties them together]
+    B((member +<br/>role +<br/>resource))
+  end
+
+  subgraph roles[Role<br/>set of permissions]
+    R1[Predefined<br/>roles/storage.objectViewer]
+    R2[Custom]
+    R3[Basic<br/>owner/editor/viewer<br/>avoid]
+  end
+
+  subgraph resource[Resource<br/>what to act on]
+    Org2[Org]
+    Folder2[Folder]
+    Proj[Project]
+    Single[Single resource<br/>bucket / topic ...]
+  end
+
+  principals --> B
+  roles --> B
+  B --> resource
 ```
 
 - **Principal** can be a user account, Google Group, Service Account, or domain.

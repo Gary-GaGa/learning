@@ -11,10 +11,17 @@ Each topic follows a **concepts → commands → common pitfalls** structure.
 - **English** → [`en/README.md`](./en/README.md)
 - **中文** → [`zh/README.md`](./zh/README.md)
 
+## Start here / 從這裡開始
+
+🗺️ **First time / 第一次看？** [`en/00-overview.md`](./en/00-overview.md) ｜ [`zh/00-overview.md`](./zh/00-overview.md) — topic map, glossary, learning paths.
+
+🆘 **Stuck / 卡住了？** [`en/troubleshooting.md`](./en/troubleshooting.md) ｜ [`zh/troubleshooting.md`](./zh/troubleshooting.md) — decision trees for common issues.
+
 ## Topics covered / 收錄主題
 
 | # | Topic / 主題 | EN | ZH |
 | --- | --- | --- | --- |
+| 00 | Overview / 總覽 | [en](./en/00-overview.md) | [zh](./zh/00-overview.md) |
 | 01 | Fundamentals (IAM, projects, gcloud) / 基礎 | [en](./en/01-fundamentals.md) | [zh](./zh/01-fundamentals.md) |
 | 02 | GKE | [en](./en/02-gke.md) | [zh](./zh/02-gke.md) |
 | 03 | Cloud Storage | [en](./en/03-cloud-storage.md) | [zh](./zh/03-cloud-storage.md) |
@@ -32,6 +39,7 @@ Each topic follows a **concepts → commands → common pitfalls** structure.
 | 15 | HTTPS Load Balancer | [en](./en/15-load-balancer.md) | [zh](./zh/15-load-balancer.md) |
 | 16 | CI/CD (Cloud Build & Deploy) | [en](./en/16-cicd.md) | [zh](./zh/16-cicd.md) |
 | 17 | Terraform / IaC | [en](./en/17-terraform.md) | [zh](./zh/17-terraform.md) |
+| 🆘 | Troubleshooting | [en](./en/troubleshooting.md) | [zh](./zh/troubleshooting.md) |
 
 ## End-to-end demo / 端對端示範
 

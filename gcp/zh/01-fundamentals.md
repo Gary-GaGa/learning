@@ -4,12 +4,29 @@
 
 ## 1. 資源階層
 
+```mermaid
+flowchart TD
+  Org[Organization<br/>example.com]
+  F1[Folder: prod]
+  F2[Folder: dev]
+  P1[Project: web-prod]
+  P2[Project: data-prod]
+  P3[Project: web-dev]
+  R1[GKE cluster<br/>GCS bucket<br/>Pub/Sub topic ...]
+  R2[BigQuery dataset<br/>Cloud SQL ...]
+  R3[Cloud Run<br/>Artifact Registry ...]
+
+  Org --> F1
+  Org --> F2
+  F1 --> P1
+  F1 --> P2
+  F2 --> P3
+  P1 --> R1
+  P2 --> R2
+  P3 --> R3
 ```
-Organization
-└── Folder（可選，用於部門/環境分組）
-    └── Project   ← 帳單、API、IAM 的主要邊界
-        └── Resource（GKE cluster、GCS bucket、Pub/Sub topic …）
-```
+
+關鍵概念：**權限沿著上面這棵樹由上而下繼承**。在 Folder 給的 role，下面所有 project 都拿得到。
 
 - **Project** 是計費與權限的基本單位。每個 resource 都「屬於」一個 project。
 - 同一帳號可以有多個 project，建議至少分 `dev` / `prod` 兩個。
@@ -19,10 +36,37 @@ Organization
 
 ## 2. IAM（Identity and Access Management）
 
-GCP 的權限模型公式：
+GCP 的權限模型公式：「**誰（Principal）對哪個 Resource 擁有什麼角色（Role）**」。
 
-```
-誰（Principal）  對哪個 Resource  擁有什麼角色（Role）
+```mermaid
+flowchart LR
+  subgraph principals[Principal<br/>誰]
+    U[user:alice@…]
+    G[group:dev@…]
+    SA[serviceAccount:<br/>app@…]
+    DOM[domain:example.com]
+  end
+
+  subgraph binding[IAM Binding<br/>把誰、role、resource 綁起來]
+    B((member +<br/>role +<br/>resource))
+  end
+
+  subgraph roles[Role<br/>一組權限]
+    R1[Predefined<br/>roles/storage.objectViewer]
+    R2[Custom<br/>自製]
+    R3[Basic<br/>owner/editor/viewer<br/>避免使用]
+  end
+
+  subgraph resource[Resource<br/>對哪個東西]
+    Org2[Org]
+    Folder2[Folder]
+    Proj[Project]
+    Single[單一 resource<br/>bucket / topic ...]
+  end
+
+  principals --> B
+  roles --> B
+  B --> resource
 ```
 
 - **Principal** 可以是：使用者帳號、Google Group、Service Account、整個網域。

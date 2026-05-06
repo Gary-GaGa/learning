@@ -6,20 +6,27 @@ A minimal-but-real example that ties together six services from the topic notes.
 
 ## Architecture
 
-```
-                  ┌──────────────────────────────────────────┐
-   client ──POST──►  Cloud Run: api                          │
-                  │   1. write invoice → GCS bucket          │
-                  │   2. publish event → Pub/Sub topic       │
-                  └──────────────────────────────────────────┘
-                                            │
-                                Pub/Sub push subscription (OIDC)
-                                            ▼
-                  ┌──────────────────────────────────────────┐
-                  │  Cloud Run: worker                       │
-                  │   1. read DB password ← Secret Manager   │
-                  │   2. INSERT order   →  Cloud SQL (PG)    │
-                  └──────────────────────────────────────────┘
+```mermaid
+sequenceDiagram
+  autonumber
+  participant C as Client
+  participant API as Cloud Run<br/>demo-api
+  participant GCS as GCS<br/>invoices bucket
+  participant PS as Pub/Sub<br/>orders topic
+  participant W as Cloud Run<br/>demo-worker
+  participant SM as Secret Manager
+  participant SQL as Cloud SQL<br/>(Postgres)
+
+  C->>API: POST /orders {...}
+  API->>GCS: write invoices/A001.json
+  GCS-->>API: ok
+  API->>PS: publish order event
+  API-->>C: 202 Accepted
+  PS->>W: push (OIDC token; Cloud Run validates IAM)
+  W->>SM: read DB password (mounted as env)
+  W->>SQL: INSERT INTO orders
+  SQL-->>W: ok
+  W-->>PS: 204 ack
 ```
 
 Services exercised:
@@ -135,7 +142,7 @@ terraform destroy -var=project="$PROJECT_ID" -var=region="$REGION"
 | --- | --- |
 | Workload Identity / runtime SA | `terraform/main.tf` — `service_account =` on each Cloud Run, plus IAM bindings |
 | Secret Manager mounting | `terraform/main.tf` — `volume_mounts` / `env { value_source { secret_key_ref ... }}` |
-| Pub/Sub push + OIDC auth | `terraform/main.tf` — subscription `oidc_token { service_account_email }`, and `worker/main.py` verifies the JWT |
+| Pub/Sub push + OIDC auth | `terraform/main.tf` — subscription `oidc_token { service_account_email }`; only the `pushinvoker` SA has `roles/run.invoker` on the worker, so Cloud Run rejects everything else **before** our code runs |
 | Cloud SQL connection from Cloud Run | `worker/main.py` — uses `cloud-sql-python-connector` with IAM auth |
 | GCS write from Cloud Run | `api/main.py` — `google-cloud-storage` with ADC |
 | Per-service minimum IAM | `terraform/main.tf` — `pubsub.publisher` only on api SA, `cloudsql.client` only on worker SA |

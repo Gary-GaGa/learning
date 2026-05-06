@@ -4,10 +4,17 @@
 
 Notes and runnable examples for common Google Cloud Platform services. Each topic follows a "concepts → commands → common pitfalls" structure.
 
+## Start here
+
+🗺️ **First time? Read [00-overview.md](./00-overview.md)** — one picture for how all topics relate, three learning paths, glossary.
+
+🆘 **Stuck? See [troubleshooting.md](./troubleshooting.md)** — decision trees for auth / networking / deploy / billing / Pub/Sub / Terraform issues.
+
 ## Contents
 
 | # | Topic | Link |
 | --- | --- | --- |
+| 00 | Overview (topic map / glossary / paths) | [00-overview.md](./00-overview.md) |
 | 01 | GCP fundamentals (projects, IAM, billing, `gcloud` CLI) | [01-fundamentals.md](./01-fundamentals.md) |
 | 02 | GKE (Google Kubernetes Engine) | [02-gke.md](./02-gke.md) |
 | 03 | Cloud Storage (GCS) | [03-cloud-storage.md](./03-cloud-storage.md) |
@@ -25,6 +32,7 @@ Notes and runnable examples for common Google Cloud Platform services. Each topi
 | 15 | HTTPS Load Balancer (deep dive) | [15-load-balancer.md](./15-load-balancer.md) |
 | 16 | CI/CD: Cloud Build & Cloud Deploy | [16-cicd.md](./16-cicd.md) |
 | 17 | Terraform / IaC | [17-terraform.md](./17-terraform.md) |
+| 🆘 | Troubleshooting: decision trees for common issues | [troubleshooting.md](./troubleshooting.md) |
 
 **End-to-end demo**: [`demo/`](../demo/README.md) — an "orders" mini-system wiring Cloud Run + Pub/Sub + GCS + Cloud SQL + Secret Manager + Artifact Registry + Terraform. Runnable with `terraform apply`.
 

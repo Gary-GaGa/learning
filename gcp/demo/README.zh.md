@@ -6,20 +6,27 @@
 
 ## 架構
 
-```
-                  ┌──────────────────────────────────────────┐
-   client ──POST──►  Cloud Run: api                          │
-                  │   1. 寫 invoice → GCS bucket             │
-                  │   2. 發 event   → Pub/Sub topic          │
-                  └──────────────────────────────────────────┘
-                                            │
-                                Pub/Sub push subscription (OIDC)
-                                            ▼
-                  ┌──────────────────────────────────────────┐
-                  │  Cloud Run: worker                       │
-                  │   1. 讀 DB 密碼  ← Secret Manager        │
-                  │   2. INSERT 訂單 → Cloud SQL (PG)        │
-                  └──────────────────────────────────────────┘
+```mermaid
+sequenceDiagram
+  autonumber
+  participant C as Client
+  participant API as Cloud Run<br/>demo-api
+  participant GCS as GCS<br/>invoices bucket
+  participant PS as Pub/Sub<br/>orders topic
+  participant W as Cloud Run<br/>demo-worker
+  participant SM as Secret Manager
+  participant SQL as Cloud SQL<br/>(Postgres)
+
+  C->>API: POST /orders {...}
+  API->>GCS: 寫 invoices/A001.json
+  GCS-->>API: ok
+  API->>PS: 發 order 事件
+  API-->>C: 202 Accepted
+  PS->>W: push (帶 OIDC token；Cloud Run 用 IAM 擋)
+  W->>SM: 讀 DB 密碼 (env 注入)
+  W->>SQL: INSERT INTO orders
+  SQL-->>W: ok
+  W-->>PS: 204 ack
 ```
 
 涉及的服務：
@@ -135,7 +142,7 @@ terraform destroy -var=project="$PROJECT_ID" -var=region="$REGION"
 | --- | --- |
 | Workload Identity / runtime SA | `terraform/main.tf` 每個 Cloud Run 的 `service_account =` 與 IAM bindings |
 | Secret Manager 注入 | `terraform/main.tf` 的 `env { value_source { secret_key_ref ... }}` |
-| Pub/Sub push + OIDC 驗證 | `terraform/main.tf` 訂閱的 `oidc_token { service_account_email }`，與 `worker/main.py` 驗 JWT |
+| Pub/Sub push + OIDC 驗證 | `terraform/main.tf` 訂閱的 `oidc_token { service_account_email }`；worker 上**只有** `pushinvoker` SA 有 `roles/run.invoker`，Cloud Run 在程式跑之前就會把其他來源擋掉 |
 | Cloud Run 連 Cloud SQL | `worker/main.py` 用 `cloud-sql-python-connector` |
 | Cloud Run 寫 GCS | `api/main.py` 用 `google-cloud-storage` 走 ADC |
 | 每個服務最小權限 | `terraform/main.tf`：api SA 只給 `pubsub.publisher`、worker SA 只給 `cloudsql.client` |

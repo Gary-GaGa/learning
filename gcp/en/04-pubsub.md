@@ -4,10 +4,18 @@ GCP's fully-managed message queue / event bus, similar to Kafka but serverless. 
 
 ## 1. Core concepts
 
+```mermaid
+flowchart LR
+  P1[Publisher<br/>order-api] -->|publish| T[(Topic<br/>orders)]
+  T -->|fan-out| SA[Subscription<br/>billing-sub]
+  T -->|fan-out| SB[Subscription<br/>analytics-sub]
+  T -->|fan-out| SC[Subscription<br/>email-sub]
+  SA -->|pull| W1[Worker: billing]
+  SB -->|pull| W2[Worker: analytics ETL]
+  SC -->|push| W3[Cloud Run: email]
 ```
-Publisher  ──publish──►  Topic  ──fan-out──►  Subscription A ──pull/push──►  Subscriber A
-                                          ╰──►  Subscription B ──pull/push──►  Subscriber B
-```
+
+**Rule**: each subscription gets a **full copy** of the topic's stream (fan-out). Within one subscription, messages are load-balanced across the workers.
 
 | Term | Meaning |
 | --- | --- |

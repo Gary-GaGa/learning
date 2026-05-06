@@ -244,10 +244,6 @@ resource "google_cloud_run_v2_service" "worker" {
           }
         }
       }
-      env {
-        name  = "PUSH_AUDIENCE"
-        value = "" # filled in via lifecycle below; see note in README
-      }
     }
   }
 

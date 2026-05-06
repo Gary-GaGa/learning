@@ -2,6 +2,31 @@
 
 GKE is Google's managed Kubernetes. It handles the control plane (API server, etcd, scheduler) so you only worry about workloads — and, in Standard mode, nodes.
 
+```mermaid
+flowchart TB
+  subgraph google[Google manages]
+    CP[Control Plane<br/>API server / etcd / scheduler]
+  end
+
+  subgraph user["You manage (nodes only visible in Standard)"]
+    direction LR
+    subgraph nodepool[Node Pool]
+      N1[Node = GCE VM]
+      N2[Node = GCE VM]
+    end
+    subgraph workloads[Workloads]
+      D[Deployment<br/>Pod / Pod / Pod]
+      S[Service<br/>LoadBalancer / ClusterIP]
+      I[Ingress<br/>→ GCLB]
+    end
+  end
+
+  CP <-->|kubectl| nodepool
+  D -.scheduled to.-> nodepool
+  S --> D
+  I --> S
+```
+
 ## 1. Standard vs Autopilot
 
 | Aspect | Standard | Autopilot |
@@ -102,6 +127,23 @@ curl http://EXTERNAL-IP
 ## 5. Workload Identity (important)
 
 Lets Pods use a GCP IAM identity instead of baking SA keys into the image. **Always use this in production.**
+
+```mermaid
+sequenceDiagram
+  participant Pod as Pod (K8s SA: app-sa)
+  participant GKE as GKE Workload Identity
+  participant IAM as GCP IAM
+  participant API as Google API (e.g. GCS)
+
+  Pod->>GKE: request token
+  GKE->>IAM: app-sa wants to impersonate gke-app@PROJECT
+  IAM-->>GKE: short-lived access token
+  GKE-->>Pod: token
+  Pod->>API: call API with token
+  API-->>Pod: response
+```
+
+Three required bindings: (1) cluster has a workload-pool; (2) GCP SA grants the K8s SA `iam.workloadIdentityUser`; (3) K8s SA has an annotation pointing at the GCP SA. Miss any one and it won't work.
 
 ```bash
 # 1. Enable Workload Identity on the cluster (Autopilot has it on by default)
