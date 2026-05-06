@@ -1,0 +1,10 @@
+services:
+  camunda:
+    image: camunda/camunda-bpm-platform:run-7.21.0
+    container_name: camunda7
+    ports:
+      - "8090:8080"
+    environment:
+      # Learning-first defaults. Uses embedded H2.
+      # If you want Postgres later, add a postgres service + DB env vars.
+      TZ: Asia/Taipei

@@ -1,0 +1,19 @@
+server:
+  port: 8081
+
+app:
+  tenant:
+    claim-name: tenant_id
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${ISSUER_URI:http://localhost:8080/realms/demo}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
